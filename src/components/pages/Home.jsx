@@ -3,18 +3,9 @@ import { useEffect, useState } from "react";
 import ProductCard from "../common/ProductCard";
 import axios from "axios";
 import TripleLoader from "./TripleLoader";
-// import { products } from "./Products";
-
-
-
 
 export default function Home() {
-  ////////////useStates/////////////
-
   const [loading, setloading] = useState(true)
-
-
-  ////////data
   const [products, setproducts] = useState([])
 
 
@@ -33,8 +24,6 @@ export default function Home() {
     setloading(false)
   }
 
-
-  //////////////useeffects ///////////
   useEffect(() => {
     getProductApi()
 
