@@ -20,7 +20,7 @@ A modern e-commerce website built using **React.js** with real-world shopping fe
 
 ## 📦 Installation & Setup
 1. Clone the repository
-   git clone https://github.com/USERNAME/REPO_NAME.git
+   git clone  https://github.com/iaakashvaghela-ux/ecommerce-react-app.git
 
 2. Install dependencies
    npm install
