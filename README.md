@@ -36,4 +36,4 @@ I am actively looking for a **Frontend / React Internship**.
 Feel free to connect with me on LinkedIn.
 
 ## 📬 Contact
-LinkedIn: (your LinkedIn profile link)
+LinkedIn: (www.linkedin.com/in/akash-vaghela-83b301396)
