@@ -5,15 +5,8 @@ import Swal from "sweetalert2"
 
 export default function Cart() {
   let hiddenImage = "https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg"
-
-  ///////////////useContexts
   const { cart, setCart } = useContext(MyGlobalContext)
-
-  ///////////////usestates
-
   const [totalPrice, settotalPrice] = useState(0)
-
-  //////////////useeffects
   useEffect(() => {
     const total = cart.reduce((acc, curr) => {
       return acc + Number(curr.price) * curr.quantity
@@ -21,42 +14,25 @@ export default function Cart() {
 
     settotalPrice(total)
   }, [cart])
-
-  
-
-
   return (
-
-
     <section className="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
-      <div className="mx-auto w-full max-w-[var(--max-width-container)] px-4 2xl:px-0">
-
-        {/* Heading */}
+      <div className="mx-auto w-full max-w-(--max-width-container) px-4 2xl:px-0">
         <h2 className="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
           Shopping Cart
         </h2>
-
-        {/* Cart Items + Summary Wrapper */}
         <div className="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-8">
-
-          {/* Cart Items */}
           <div className="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl space-y-6">
             {
               cart.map((Product, i) => {
-
                 return (
                   <div key={Product.id} className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
 
-                    {/* Item Row */}
-                    <div className="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
 
-                      {/* Product Image */}
+                    <div className="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
                       <a href="#" className="shrink-0 md:order-1">
                         <img className="h-20 w-20 dark:hidden" alt="Gray Dress" src="https://cdn.dummyjson.com/products/images/tops/Gray%20Dress/thumbnail.png" />
                         <img className="hidden h-20 w-20 dark:block" alt="Gray Dress" src={Product.image} />
                       </a>
-
-                      {/* Product Info */}
                       <div className="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
                         <a href="#" className="text-base font-medium text-gray-900 hover:underline dark:text-white">
                           {Product.name}
@@ -106,8 +82,6 @@ export default function Cart() {
                           </button>
                         </div>
                       </div>
-
-                      {/* Quantity + Price */}
                       <div className="flex items-center justify-between md:order-3 md:justify-end gap-4">
                         <div className="flex items-center">
                           <button
@@ -165,8 +139,6 @@ export default function Cart() {
 
 
           </div>
-
-          {/* Order Summary */}
           <div className="mx-auto mt-6 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
             <div className="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
               <p className="text-xl font-semibold text-gray-900 dark:text-white">Order summary</p>
@@ -183,8 +155,6 @@ export default function Cart() {
             </div>
             <div className="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
               <form className="space-y-4">
-
-                {/* Voucher Input */}
                 <div>
                   <label
                     htmlFor="voucher"
@@ -203,8 +173,6 @@ export default function Cart() {
                    dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                   />
                 </div>
-
-                {/* Apply Button */}
                 <button
                   type="submit"
                   className="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white 
@@ -213,21 +181,13 @@ export default function Cart() {
                 >
                   Apply Code
                 </button>
-
               </form>
             </div>
-
-
-
-
           </div>
 
         </div>
       </div>
     </section>
-
-
-
 
   )
 }

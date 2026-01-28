@@ -42,7 +42,7 @@ export default function Home() {
           <h1 className="text-4xl font-bold mb-3">Celebration wear for Men</h1>
           <p>Welcome to Bagtesh Fashion Buy Indian Men's Ethnic suits, Tuxedos, Sherwanis, Nehru jacket, Jodhpurs pants, Blazers, Shirts and much more.</p>
         </div>
-        <section className="max-w-[var(--max-width-container)] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-15 justify-items-center">
+        <section className="max-w-(--max-width-container) mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-15 justify-items-center">
 
 
 
@@ -72,10 +72,7 @@ export default function Home() {
           <h1 className="text-4xl font-bold mb-3">Celebration wear for Women</h1>
           <p>Beautiful collection of Lehenga cholis, Sarees, Salwar suits for engagement, wedding and other ethnic occasions.</p>
         </div>
-        <section className="max-w-[var(--max-width-container)] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-15 justify-items-center">
-
-
-
+        <section className="max-w-(--max-width-container) mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-15 justify-items-center">
           {
 
             loading ?

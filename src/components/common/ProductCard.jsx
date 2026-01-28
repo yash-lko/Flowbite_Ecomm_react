@@ -27,7 +27,6 @@ export default function ProductCard({ product }) {
   const handleSuccess = () => {
     toast.success("Added successfully ✅");
   };
-  ///////////////////////////////useContexts////////////////////////////////
 
   const { cart, setCart } = useContext(MyGlobalContext)
 
@@ -40,7 +39,7 @@ export default function ProductCard({ product }) {
     setCart(prev => {
       const existingItem = prev.find(item => item.id === id);
 
-      // 🟢 agar product pehle se cart me hai
+      // if product exist already
       if (existingItem) {
         return prev.map(item =>
           item.id === id
@@ -49,7 +48,7 @@ export default function ProductCard({ product }) {
         );
       }
 
-      // 🔵 agar product naya hai
+      // 🔵 if product not exist
       return [
         ...prev,
         { name, id, image, description, price, stock, quantity: 1 }
@@ -94,22 +93,16 @@ export default function ProductCard({ product }) {
     
 
       <div className="w-72  bg-white shadow-md rounded-xl  hover:scale-105 duration-300 relative group">
-
-        {/* Discount Ribbon */}
         {product.discount_percentage > 0 && (
           <div className="absolute top-2 right-2 bg-red-600 text-white text-xs px-2 py-1 rounded z-10">
             {product.discount_percentage}% OFF
           </div>
         )}
-
-        {/* Wishlist */}
         <button
           className="absolute top-2 left-2 bg-white p-2 rounded-full shadow hover:text-red-500 z-10"
         >
           <FaHeart />
         </button>
-
-        {/* Image */}
         <Link to={`/productdetails/${product.slug}`}>
           <img
             src={product.image}
@@ -117,8 +110,6 @@ export default function ProductCard({ product }) {
             className="h-80 w-72 object-cover"
           />
         </Link>
-
-        {/* Hover Actions */}
         <div className="absolute bottom-32 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 duration-300">
           {
             addRemovecart ?
@@ -144,9 +135,9 @@ export default function ProductCard({ product }) {
 
         </div>
 
-        {/* Content */}
+
         <div className="p-4">
-          <p className="text-xs text-gray-400">name: {product.name}</p>
+          <p className="text-xs text-gray-400">{product.name}</p>
           <p className="text-xs text-gray-400">Brand: {product.brand_name}</p>
 
           <h3 className="text-sm font-semibold line-clamp-2">
