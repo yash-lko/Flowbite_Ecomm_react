@@ -125,7 +125,7 @@ export default function ProductCard({ product }) {
               <button
                 onClick={removeToCart}
                 disabled={!product.stock}
-                className="flex items-center gap-2 bg-red-800 text-white px-4 py-2 rounded disabled:opacity-50"
+                className="flex items-center cursor-pointer gap-2 bg-red-800 text-white px-4 py-2 rounded disabled:opacity-50"
               >
                 <FaShoppingCart />
                 Remove to Cart
@@ -134,7 +134,7 @@ export default function ProductCard({ product }) {
               <button
                 onClick={addToCart}
                 disabled={!product.stock}
-                className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded disabled:opacity-50"
+                className="flex items-center cursor-pointer gap-2 bg-black text-white px-4 py-2 rounded disabled:opacity-50"
               >
                 <FaShoppingCart />
                 Add to Cart
