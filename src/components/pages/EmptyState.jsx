@@ -5,18 +5,17 @@ export default function EmptyState({
   subtitle = "Try changing filters or search keywords",
 }) {
   return (
-    <div className="flex flex-col items-center justify-center h-full py-20 text-center">
+    <div className="flex h-full flex-col items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-50 py-20 text-center">
 
-      <div className="w-20 h-20 flex items-center justify-center
-                      rounded-full bg-gray-100 text-gray-400">
+      <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white text-slate-400 shadow-sm">
         <MdSearchOff size={40} />
       </div>
 
-      <h2 className="mt-6 text-xl font-semibold text-gray-800">
+      <h2 className="mt-6 text-xl font-bold text-slate-800">
         {title}
       </h2>
 
-      <p className="mt-2 text-sm text-gray-500 max-w-sm">
+      <p className="mt-2 max-w-sm text-sm text-slate-500">
         {subtitle}
       </p>
 

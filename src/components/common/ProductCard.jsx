@@ -87,19 +87,17 @@ export default function ProductCard({ product }) {
 
 
 
-  console.log(cart);
-
   return (
     
 
-      <div className="w-72  bg-white shadow-md rounded-xl  hover:scale-105 duration-300 relative group">
+      <div className="group relative w-full max-w-[18rem] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm duration-300 hover:-translate-y-1 hover:shadow-xl">
         {product.discount_percentage > 0 && (
-          <div className="absolute top-2 right-2 bg-red-600 text-white text-xs px-2 py-1 rounded z-10">
+          <div className="absolute top-2 right-2 z-10 rounded-full bg-red-600 px-2 py-1 text-xs text-white">
             {product.discount_percentage}% OFF
           </div>
         )}
         <button
-          className="absolute top-2 left-2 bg-white p-2 rounded-full shadow hover:text-red-500 z-10"
+          className="absolute top-2 left-2 z-10 rounded-full bg-white p-2 shadow hover:text-red-500"
         >
           <FaHeart />
         </button>
@@ -107,16 +105,16 @@ export default function ProductCard({ product }) {
           <img
             src={product.image}
             alt={product.title}
-            className="h-80 w-72 object-cover"
+            className="h-80 w-full object-cover"
           />
         </Link>
-        <div className="absolute bottom-32 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 duration-300">
+        <div className="absolute bottom-32 left-0 right-0 flex justify-center opacity-100 duration-300 sm:opacity-0 sm:group-hover:opacity-100">
           {
             addRemovecart ?
               <button
                 onClick={removeToCart}
                 disabled={!product.stock}
-                className="flex items-center cursor-pointer gap-2 bg-red-800 text-white px-4 py-2 rounded disabled:opacity-50"
+                className="flex cursor-pointer items-center gap-2 rounded-full bg-red-700 px-4 py-2 text-white disabled:opacity-50"
               >
                 <FaShoppingCart />
                 Remove to Cart
@@ -125,7 +123,7 @@ export default function ProductCard({ product }) {
               <button
                 onClick={addToCart}
                 disabled={!product.stock}
-                className="flex items-center cursor-pointer gap-2 bg-black text-white px-4 py-2 rounded disabled:opacity-50"
+                className="flex cursor-pointer items-center gap-2 rounded-full bg-slate-900 px-4 py-2 text-white disabled:opacity-50"
               >
                 <FaShoppingCart />
                 Add to Cart
@@ -136,11 +134,11 @@ export default function ProductCard({ product }) {
         </div>
 
 
-        <div className="p-4">
-          <p className="text-xs text-gray-400">{product.name}</p>
-          <p className="text-xs text-gray-400">Brand: {product.brand_name}</p>
+        <div className="space-y-1 p-4">
+          <p className="text-xs text-slate-400">{product.name}</p>
+          <p className="text-xs text-slate-400">Brand: {product.brand_name}</p>
 
-          <h3 className="text-sm font-semibold line-clamp-2">
+          <h3 className="line-clamp-2 text-sm font-semibold text-slate-800">
             {product.title}
           </h3>
 
@@ -158,7 +156,7 @@ export default function ProductCard({ product }) {
           </div>
 
           {/* Price */}
-          <div className="flex items-center gap-2">
+          <div className="mt-2 flex items-center gap-2">
             <p className="text-lg font-bold text-green-600">
               ${discountedPrice}
             </p>

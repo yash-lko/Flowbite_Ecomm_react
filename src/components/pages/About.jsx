@@ -10,19 +10,19 @@ export default function About() {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="px-2 py-32 bg-white md:px-0">
+      <section className="rounded-3xl bg-white px-2 py-20 shadow-sm md:px-0">
         <div className="container items-center max-w-6xl px-8 mx-auto xl:px-5">
           <div className="flex flex-wrap items-center sm:-mx-3">
             <div className="w-full md:w-1/2 md:px-3">
               <div className="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9">
-                <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
+                <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
                   <span className="block">Useful Tools to</span>
-                  <span className="block text-indigo-600">
+                  <span className="block text-blue-600">
                     Help You Build Faster.
                   </span>
                 </h1>
 
-                <p className="text-base text-gray-500 lg:text-xl">
+                <p className="text-base text-slate-600 lg:text-xl">
                   It's never been easier to build beautiful websites that convey
                   your message and tell your story.
                 </p>
@@ -30,13 +30,13 @@ export default function About() {
                 <div className="flex flex-col sm:flex-row sm:space-x-4">
                   <a
                     href="#"
-                    className="flex items-center px-6 py-3 text-lg text-white bg-indigo-600 rounded-md hover:bg-indigo-700"
+                    className="flex items-center rounded-xl bg-blue-600 px-6 py-3 text-lg text-white transition hover:bg-blue-700"
                   >
                     Try It Free →
                   </a>
                   <a
                     href="#"
-                    className="flex items-center px-6 py-3 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200"
+                    className="flex items-center rounded-xl bg-slate-100 px-6 py-3 text-slate-600 transition hover:bg-slate-200"
                   >
                     Learn More
                   </a>
@@ -56,7 +56,7 @@ export default function About() {
       </section>
 
       {/* FEATURES SECTION */}
-      <section className="w-full bg-white py-20">
+      <section className="mt-8 w-full rounded-3xl bg-white py-20 shadow-sm">
         <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-16">
           <div>
             <h2 className="text-3xl font-semibold">Boost Productivity</h2>
@@ -96,7 +96,7 @@ export default function About() {
       </section>
 
       {/* TOOLS SECTION */}
-      <section className="py-20 bg-gray-50">
+      <section className="mt-8 rounded-3xl bg-slate-100 py-20">
         <div className="max-w-6xl mx-auto px-8 grid md:grid-cols-2 gap-16">
           <div>
             <h2 className="text-4xl font-bold">
@@ -116,7 +116,7 @@ export default function About() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-20 bg-white">
+      <section className="mt-8 rounded-3xl bg-white py-20 shadow-sm">
         <div className="max-w-6xl mx-auto px-8 text-center">
           <h2 className="text-4xl font-bold">What people say</h2>
 
@@ -134,7 +134,7 @@ export default function About() {
       </section>
 
       {/* PRICING */}
-      <section className="py-20 bg-white">
+      <section className="mt-8 rounded-3xl bg-white py-20 shadow-sm">
         <div className="max-w-6xl mx-auto px-8 text-center">
           <h2 className="text-4xl font-bold">Pricing Options</h2>
 

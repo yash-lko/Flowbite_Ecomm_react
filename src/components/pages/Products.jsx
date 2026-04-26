@@ -4,7 +4,6 @@ import { FaFilter, FaMinus, FaPlus } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { RxDashboard } from "react-icons/rx";
 import ProductCard from "../common/ProductCard";
-import Home from "./Home";
 import TripleLoader from "./TripleLoader";
 import EmptyState from "./EmptyState";
 import ResponsivePagination from 'react-responsive-pagination';
@@ -113,9 +112,9 @@ export default function Products() {
 
   return (
 
-    <div className="max-w-[1320px] mx-auto ">
+    <div className="mx-auto max-w-[1320px] rounded-3xl border border-slate-200 bg-white p-4 pb-16 shadow-sm md:p-6 md:pb-6">
 
-      <div className="lg:hidden fixed z-99999 bottom-0 bg-[#0D6EFD] p-2 text-white  w-[100%] ">
+      <div className="fixed bottom-0 left-0 z-99999 w-full bg-blue-700 p-2 text-white shadow-2xl lg:hidden">
         <div className="flex justify-items-center items-center ">
           <button onClick={() => setallFil(v => !v)} className="gap-2 flex items-center"> <FaFilter /> All Filters</button>
         </div>
@@ -123,24 +122,24 @@ export default function Products() {
 
 
       {/* HEADING SECTION  */}
-      <div className="lg:flex justify-between items-center border-b border-[#cccc]">
-        <h1 className="font-bold text-3xl p-10">New Arrivals</h1>
+      <div className="flex flex-col gap-4 border-b border-slate-200 pb-5 lg:flex-row lg:items-center lg:justify-between">
+        <h1 className="text-3xl font-extrabold text-slate-900 md:text-4xl">New Arrivals</h1>
         <div>
           <label className="" htmlFor="">
-            <input onChange={(e) => setsearchFilter(e.target.value)} className="border border-[#ccc] rounded-[10px] p-0.5 px-3" type="text" name="" id="" placeholder="search" />
+            <input onChange={(e) => setsearchFilter(e.target.value)} className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-2 text-sm outline-none ring-blue-500 transition focus:border-blue-400 focus:ring-2 lg:w-72" type="text" name="" id="" placeholder="Search products..." />
           </label>
         </div>
 
-        <div className="flex gap-40 items-center">
+        <div className="flex items-center justify-between gap-6 lg:gap-16">
 
 
           {/* soting filter */}
 
           <div className="relative ">
-            <h3 className="text-[#364153]  flex gap-1 cursor-pointer" onClick={() => setsortingDiv(v => !v)}>sort <RiArrowDropDownLine size={25} /></h3>
+            <h3 className="flex cursor-pointer items-center gap-1 rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700" onClick={() => setsortingDiv(v => !v)}>Sort <RiArrowDropDownLine size={25} /></h3>
 
 
-            <ul onClick={() => setsortingDiv(v => !v)} className={`z-50 text-[#364153] absolute top-8 left-5 bg-white shadow cursor-pointer py-3 rounded-2xl w-max duration-300 origin-top-left ${sortingDiv ? "" : "scale-0"}`}>
+            <ul onClick={() => setsortingDiv(v => !v)} className={`absolute left-0 top-12 z-50 w-max origin-top-left cursor-pointer rounded-2xl border border-slate-200 bg-white py-3 text-slate-700 shadow-xl duration-300 ${sortingDiv ? "" : "scale-0"}`}>
               <li onClick={() => setsortinFilter(null)} className="hover:bg-[#F3F4F6] py-1 px-3">none</li>
               <li onClick={() => setsortinFilter(1)} className="hover:bg-[#F3F4F6] py-1 px-3">Name : A to Z</li>
               <li onClick={() => setsortinFilter(2)} className="hover:bg-[#F3F4F6] py-1 px-3">Name : A to Z</li>
@@ -153,14 +152,21 @@ export default function Products() {
 
 
           </div>
-          <div className="flex items-center "><RxDashboard /></div>
+          <div className="flex items-center rounded-full bg-slate-100 p-2 text-slate-600"><RxDashboard /></div>
         </div>
 
       </div>
 
-      <div className=" grid grid-cols-1  lg:grid-cols-[20%_auto] ">
+      <div className="mt-5 grid grid-cols-1 gap-4 lg:grid-cols-[24%_auto]">
         {/* SIDE BAR  */}
-        <div className={`${allFil ? "" : "hidden"} lg:block h-[69vh]  overflow-y-scroll lg:static top-0 left-0 h-full lg:h-[70vh] bg-white z-50 w-[85%] sm:w-[60%] lg:w-auto overflow-y-scroll transition-transform `} >
+        <div
+          className={`${allFil ? "fixed inset-0 z-40 bg-black/40 p-3 pt-20" : "hidden"} lg:static lg:block lg:bg-transparent lg:p-0`}
+          onClick={() => setallFil(false)}
+        >
+          <div
+            className="h-[calc(100vh-6rem)] w-[85%] overflow-y-auto rounded-2xl border border-slate-200 bg-slate-50 shadow-xl sm:w-[60%] lg:h-auto lg:w-auto lg:overflow-visible lg:shadow-none"
+            onClick={(e) => e.stopPropagation()}
+          >
 
           {/* categories filter///////////////////////// */}
 
@@ -581,6 +587,7 @@ export default function Products() {
               </li>
             </ul>
           </div>
+          </div>
         </div>
 
 
@@ -594,7 +601,7 @@ export default function Products() {
             (products.length == 0 ?
               <EmptyState />
               :
-              <div className="grid grid-cols-1 justify-items-center gap-2 h-[69vh] overflow-y-scroll p-3 pt-10 sm:grid-cols-2  lg:grid-cols-3 lg:gap-4 h-[70vh] lg:overflow-y-scroll lg:p-2">
+              <div className="grid min-h-[420px] grid-cols-1 justify-items-center gap-6 p-3 pt-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6 lg:p-2">
 
                 {products.map((item) => (
                   <ProductCard key={item.id} product={item} />
@@ -603,7 +610,7 @@ export default function Products() {
 
             )}
       </div>
-      <div className="w-[90%] overflow-x-scroll lg:w-[100%] ">
+      <div className="mt-5 w-[90%] overflow-x-scroll rounded-xl bg-white/60 p-2 lg:w-[100%]">
 
         <ResponsivePagination
           current={currentPage}

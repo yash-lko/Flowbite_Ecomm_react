@@ -1,13 +1,16 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { MdLocalOffer, MdSecurity } from "react-icons/md";
 import { useParams } from "react-router";
+import { toast } from "react-toastify";
+import { MyGlobalContext } from "./MainContext";
 
 
 export default function ProductDetails() {
   //////////useparams///
   const { product_slug } = useParams()
+  const { setCart } = useContext(MyGlobalContext);
 
   // //////usestates 
 
@@ -15,6 +18,42 @@ export default function ProductDetails() {
   
 
   const [MainImage, setMainImage] = useState(product.image)
+
+  const addToCart = () => {
+    if (!product?.id) return;
+
+    if (!product.stock) {
+      toast.error("Out of stock ❌");
+      return;
+    }
+
+    setCart((prev) => {
+      const existingItem = prev.find((item) => item.id === product.id);
+
+      if (existingItem) {
+        return prev.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      }
+
+      return [
+        ...prev,
+        {
+          id: product.id,
+          name: product.name,
+          image: product.image,
+          description: product.description,
+          price: product.price,
+          stock: product.stock,
+          quantity: 1,
+        },
+      ];
+    });
+
+    toast.success("Added successfully ✅");
+  };
 
 
   const getProductdetails = async () => {
@@ -34,14 +73,14 @@ export default function ProductDetails() {
 
 
   return (
-    <div className="max-w-[1320px] mx-auto px-6 py-10">
+    <div className="mx-auto max-w-[1320px] rounded-3xl border border-slate-200 bg-white px-6 py-10 shadow-sm">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
         {/* LEFT : IMAGES */}
         <div className="">
 
           {/* Main Image */}
-          <div className="border rounded-lg p-6 flex items-center justify-center">
+          <div className="flex items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 p-6">
             <img
                 src={MainImage || product.image}
               alt={product.name}
@@ -59,7 +98,7 @@ export default function ProductDetails() {
                 src={img}
                 alt=""
                 onClick={() => setMainImage(img)}
-                className={`w-20 h-20 object-contain border rounded cursor-pointer
+                className={`h-20 w-20 cursor-pointer rounded-lg border border-slate-300 object-contain hover:border-blue-400
                 `}
               />
             ))}
@@ -69,7 +108,7 @@ export default function ProductDetails() {
         {/* RIGHT : DETAILS */}
         <div>
           {/* Title */}
-          <h1 className="text-2xl font-semibold text-gray-900">
+          <h1 className="text-2xl font-bold text-slate-900">
             {product.name}
           </h1>
 
@@ -139,14 +178,16 @@ export default function ProductDetails() {
           </p>
 
           {/* Buttons */}
-          <div className="flex gap-4 mt-6">
-            <button className="flex-1 bg-yellow-400 hover:bg-yellow-500
-                               text-black font-semibold py-3 rounded-lg">
+          <div className="mt-6 flex gap-4">
+            <button
+              onClick={addToCart}
+              disabled={!product.stock}
+              className="flex-1 rounded-xl bg-yellow-400 py-3 font-semibold text-black transition hover:bg-yellow-500 disabled:cursor-not-allowed disabled:opacity-60"
+            >
               Add to Cart
             </button>
 
-            <button className="flex-1 bg-orange-500 hover:bg-orange-600
-                               text-white font-semibold py-3 rounded-lg">
+            <button className="flex-1 rounded-xl bg-orange-500 py-3 font-semibold text-white transition hover:bg-orange-600">
               Buy Now
             </button>
           </div>

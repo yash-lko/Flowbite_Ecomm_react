@@ -15,9 +15,9 @@ export default function Cart() {
     settotalPrice(total)
   }, [cart])
   return (
-    <section className="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
+    <section className="rounded-3xl border border-slate-200 bg-white py-8 shadow-sm md:py-10">
       <div className="mx-auto w-full max-w-(--max-width-container) px-4 2xl:px-0">
-        <h2 className="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
+        <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
           Shopping Cart
         </h2>
         <div className="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-8">
@@ -25,7 +25,7 @@ export default function Cart() {
             {
               cart.map((Product, i) => {
                 return (
-                  <div key={Product.id} className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
+                  <div key={Product.id} className="rounded-2xl border border-slate-200 bg-slate-50 p-4 shadow-sm md:p-6">
 
 
                     <div className="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
@@ -34,13 +34,13 @@ export default function Cart() {
                         <img className="hidden h-20 w-20 dark:block" alt="Gray Dress" src={Product.image} />
                       </a>
                       <div className="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
-                        <a href="#" className="text-base font-medium text-gray-900 hover:underline dark:text-white">
+                        <a href="#" className="text-base font-semibold text-slate-900 hover:underline">
                           {Product.name}
                         </a>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                        <p className="line-clamp-2 text-sm text-slate-600">
                           {Product.description}
                         </p>
-                        <p className="text-base font-medium text-gray-900 dark:text-white">${Product.price}</p>
+                        <p className="text-base font-semibold text-slate-900">${Product.price}</p>
                         <div className="flex items-center gap-4">
                           <button className="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white flex items-center gap-1">
                             <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -99,8 +99,8 @@ export default function Cart() {
                                 )
                               )
                             }}
-                            className="h-5 w-5 flex items-center justify-center rounded-md border bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600">-</button>
-                          <input className="w-10 text-center border-0 bg-transparent focus:ring-0 dark:text-white" type="text" value={`${Product.quantity}`} readOnly />
+                            className="h-7 w-7 cursor-pointer rounded-md border border-slate-300 bg-white text-sm hover:bg-slate-100">-</button>
+                          <input className="w-10 border-0 bg-transparent text-center font-semibold text-slate-800 focus:ring-0" type="text" value={`${Product.quantity}`} readOnly />
 
                           <button onClick={() => {
                             if (Product.stock == Product.quantity) {
@@ -124,9 +124,9 @@ export default function Cart() {
                           }}
 
 
-                            className="h-5 w-5 flex items-center justify-center rounded-md border bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600">+</button>
+                            className="h-7 w-7 cursor-pointer rounded-md border border-slate-300 bg-white text-sm hover:bg-slate-100">+</button>
                         </div>
-                        <p className="text-base font-bold text-gray-900 dark:text-white">${Product.quantity * Product.price}</p>
+                        <p className="text-base font-bold text-slate-900">${Product.quantity * Product.price}</p>
                       </div>
 
                     </div>
@@ -140,25 +140,25 @@ export default function Cart() {
 
           </div>
           <div className="mx-auto mt-6 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
-            <div className="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
-              <p className="text-xl font-semibold text-gray-900 dark:text-white">Order summary</p>
+            <div className="space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 shadow-sm sm:p-6">
+              <p className="text-xl font-bold text-slate-900">Order summary</p>
               <div className="space-y-2">
-                <dl className="flex justify-between"><dt className="text-gray-500 dark:text-gray-400">Original price</dt><dd className="text-gray-900 dark:text-white">$7,592.00</dd></dl>
-                <dl className="flex justify-between"><dt className="text-gray-500 dark:text-gray-400">Savings</dt><dd className="text-green-600">-$299.00</dd></dl>
-                <dl className="flex justify-between"><dt className="text-gray-500 dark:text-gray-400">Store Pickup</dt><dd className="text-gray-900 dark:text-white">$99</dd></dl>
-                <dl className="flex justify-between"><dt className="text-gray-500 dark:text-gray-400">Tax</dt><dd className="text-gray-900 dark:text-white">${Math.floor(totalPrice / 18)}</dd></dl>
-                <dl className="flex justify-between border-t border-gray-200 pt-2 dark:border-gray-700"><dt className="font-bold text-gray-900 dark:text-white">Total</dt><dd className="font-bold text-gray-900 dark:text-white">${totalPrice + Math.floor(totalPrice / 18)}</dd></dl>
+                <dl className="flex justify-between"><dt className="text-slate-600">Original price</dt><dd className="text-slate-900">$7,592.00</dd></dl>
+                <dl className="flex justify-between"><dt className="text-slate-600">Savings</dt><dd className="text-emerald-600">-$299.00</dd></dl>
+                <dl className="flex justify-between"><dt className="text-slate-600">Store Pickup</dt><dd className="text-slate-900">$99</dd></dl>
+                <dl className="flex justify-between"><dt className="text-slate-600">Tax</dt><dd className="text-slate-900">${Math.floor(totalPrice / 18)}</dd></dl>
+                <dl className="flex justify-between border-t border-slate-200 pt-2"><dt className="font-bold text-slate-900">Total</dt><dd className="font-bold text-slate-900">${totalPrice + Math.floor(totalPrice / 18)}</dd></dl>
               </div>
-              <a href="#" className="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-white hover:bg-primary-800 dark:bg-primary-600 dark:hover:bg-primary-700">
+              <a href="#" className="flex w-full items-center justify-center rounded-xl bg-blue-700 px-5 py-2.5 font-semibold text-white transition hover:bg-blue-800">
                 Proceed to Checkout
               </a>
             </div>
-            <div className="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
+            <div className="space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 shadow-sm sm:p-6">
               <form className="space-y-4">
                 <div>
                   <label
                     htmlFor="voucher"
-                    className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    className="mb-2 block text-sm font-medium text-slate-900"
                   >
                     Do you have a voucher or gift card?
                   </label>
@@ -167,17 +167,12 @@ export default function Cart() {
                     type="text"
                     required
                     placeholder=""
-                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 
-                   focus:border-primary-500 focus:ring-primary-500 
-                   dark:border-gray-600 dark:bg-gray-700 dark:text-white 
-                   dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
+                    className="block w-full rounded-xl border border-slate-300 bg-white p-2.5 text-sm text-slate-900 outline-none ring-blue-500 focus:border-blue-400 focus:ring-2"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white 
-                 hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 
-                 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                  className="flex w-full items-center justify-center rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-700 focus:outline-none"
                 >
                   Apply Code
                 </button>
