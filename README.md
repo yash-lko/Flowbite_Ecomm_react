@@ -33,5 +33,4 @@ This project was built for learning and practice of frontend development and Rea
 I am actively looking for a **Frontend / React Internship**.  
 Feel free to connect with me on LinkedIn.
 
-## 📬 Contact
-LinkedIn: (www.linkedin.com/in/akash-vaghela-83b301396)
+
