@@ -29,8 +29,6 @@ A modern e-commerce website built using **React.js** with real-world shopping fe
 ## 🎯 Purpose
 This project was built for learning and practice of frontend development and React concepts.
 
-## 💼 Internship
-I am actively looking for a **Frontend / React Internship**.  
-Feel free to connect with me on LinkedIn.
+
 
 
