@@ -14,8 +14,7 @@ A modern e-commerce website built using **React.js** with real-world shopping fe
 - Tailwind CSS / CSS
 - REST API
 
-## 📸 Screenshots
-(Add screenshots here)
+
 
 ## 📦 Installation & Setup
 1. Clone the repository
