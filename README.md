@@ -1,4 +1,3 @@
-<img width="1544" height="819" alt="image" src="https://github.com/user-attachments/assets/2555fd73-73dd-4788-8da9-60728127aa6b" /># 🛒 E-Commerce Web Application
 
 A modern e-commerce website built using **React.js** with real-world shopping features.
 
